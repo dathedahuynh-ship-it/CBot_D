@@ -77,6 +77,14 @@ namespace gui
 	inline std::string m_Title = "CBot " + m_Currentversion;
 	inline bool m_updatefound = false;
 
+	// GUI Enhancement Variables
+	inline int m_currentTab = 0;
+	inline int m_currentTheme = 0;
+	inline std::vector<std::string> m_availableFonts;
+	inline int m_selectedFontIndex = 0;
+	inline float m_fontSize = 16.0f;
+	inline bool m_showFontSelector = false;
+
 	inline int m_currentreverbtype = 0;
 	static const std::vector<const char*> m_dsps = { "FMOD_DSP_TYPE_UNKNOWN", "FMOD_DSP_TYPE_MIXER", "FMOD_DSP_TYPE_OSCILLATOR",
 "FMOD_DSP_TYPE_LOWPASS", "FMOD_DSP_TYPE_ITLOWPASS", "FMOD_DSP_TYPE_HIGHPASS", "FMOD_DSP_TYPE_ECHO", "FMOD_DSP_TYPE_FADER",

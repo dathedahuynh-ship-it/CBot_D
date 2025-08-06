@@ -1,5 +1,5 @@
 #include "pch.h"
-
+#include <filesystem>
 
 namespace gui
 {
@@ -9,6 +9,18 @@ namespace gui
 
 	void initializeImGui()
 	{
+		ImGuiStyle& style = ImGui::GetStyle();
+		style.WindowRounding = 8.0f;
+		style.FrameRounding = 4.0f;
+		style.PopupRounding = 6.0f;
+		style.ScrollbarRounding = 12.0f;
+		style.GrabRounding = 4.0f;
+		style.TabRounding = 6.0f;
+		style.WindowBorderSize = 1.0f;
+		style.FrameBorderSize = 0.0f;
+		style.PopupBorderSize = 1.0f;
+		style.ChildBorderSize = 0.0f;
+		
 		ImVec4* colors = ImGui::GetStyle().Colors;
 		colors[ImGuiCol_Text] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
 		colors[ImGuiCol_TextDisabled] = ImVec4(0.50f, 0.50f, 0.50f, 1.00f);
