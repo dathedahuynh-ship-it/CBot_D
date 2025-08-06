@@ -60,9 +60,9 @@ namespace gui
 	inline float m_whitenoisevolume = 1.0f;
 	//If folder soft clicks for example doesn�t exists, then the user cannot change the soft clicks  
 	inline float m_minVolume = 1.0f;
-	inline float m_maxVolume = 1.0f;
-	inline float m_minPitch = 1.0f;
-	inline float m_maxPitch = 1.0f;
+	inline float m_maxVolume = 100.0f;
+	inline float m_minPitch = 0.8f;
+	inline float m_maxPitch = 1.2f;
 	inline float m_minsoftClickstime = 0.1f;
 	inline float m_maxsoftClickstime = 0.1f;
 	inline float m_minhardClickstime = 2.0f;

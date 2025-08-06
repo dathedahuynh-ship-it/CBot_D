@@ -72,13 +72,26 @@
     "default": false
   },
 
+  "Player 1 MicroClicks": {
+    "type": "bool",
+    "name": "Enable Player 1 MicroClicks",
+    "description": "Toggle micro clicks for Player 1.",
+    "default": false
+  },
+  "Player 2 MicroClicks": {
+    "type": "bool",
+    "name": "Enable Player 2 MicroClicks",
+    "description": "Toggle micro clicks for Player 2.",
+    "default": false
+  },
+
   "PC Noise Volume": {
     "type": "float",
     "name": "PC Noise Volume",
     "description": "Configures PC Volume, if enabled.",
     "default": 1,
     "min": 0.0,
-    "max": 999,
+    "max": 100,
     "controls": {
       "arrows": true,
       "arrow-step": 0.05,
@@ -88,45 +101,14 @@
     }
   },
 
-
-  "Min Click Pitch": {
-    "type": "float",
-    "name": "Min Click Pitch",
-    "description": "Lowest pitch value for a click.",
-    "default": 1,
-    "min": 0.0,
-    "max": 999,
-    "controls": {
-      "arrows": true,
-      "arrow-step": 0.05,
-      "slider": true,
-      "slider-step": 0.05,
-      "input": false
-    }
-  },
-  "Max Click Pitch": {
-    "type": "float",
-    "name": "Max Click Pitch",
-    "description": "Highest pitch value for a click.",
-    "default": 1,
-    "min": 0.0,
-    "max": 999,
-    "controls": {
-      "arrows": true,
-      "arrow-step": 0.05,
-      "slider": true,
-      "slider-step": 0.05,
-      "input": false
-    }
-  },
 
   "Min Click Volume": {
     "type": "float",
     "name": "Min Click Volume",
-    "description": "Minimum volume of click sounds.",
+    "description": "Lowest volume value for a click.",
     "default": 1,
     "min": 0.0,
-    "max": 999,
+    "max": 100,
     "controls": {
       "arrows": true,
       "arrow-step": 0.05,
@@ -138,10 +120,10 @@
   "Max Click Volume": {
     "type": "float",
     "name": "Max Click Volume",
-    "description": "Maximum volume of click sounds.",
+    "description": "Highest volume value for a click.",
     "default": 1,
     "min": 0.0,
-    "max": 999,
+    "max": 100,
     "controls": {
       "arrows": true,
       "arrow-step": 0.05,
@@ -151,6 +133,36 @@
     }
   },
 
+  "Min Click Pitch": {
+    "type": "float",
+    "name": "Min Click Pitch",
+    "description": "Lowest pitch value for a click (0.5 = half speed, 1.0 = normal, 2.0 = double speed).",
+    "default": 0.8,
+    "min": 0.1,
+    "max": 3.0,
+    "controls": {
+      "arrows": true,
+      "arrow-step": 0.05,
+      "slider": true,
+      "slider-step": 0.05,
+      "input": false
+    }
+  },
+  "Max Click Pitch": {
+    "type": "float",
+    "name": "Max Click Pitch",
+    "description": "Highest pitch value for a click (0.5 = half speed, 1.0 = normal, 2.0 = double speed).",
+    "default": 1.2,
+    "min": 0.1,
+    "max": 3.0,
+    "controls": {
+      "arrows": true,
+      "arrow-step": 0.05,
+      "slider": true,
+      "slider-step": 0.05,
+      "input": false
+    }
+  },
   "Min softclicks_time": {
     "type": "float",
     "name": "Min Softclicks Time",
@@ -202,6 +214,36 @@
     "name": "Max Hardclicks Time",
     "description": "Maximum delay between hard clicks in seconds.",
     "default": 2,
+    "min": 0.0,
+    "max": 999,
+    "controls": {
+      "arrows": true,
+      "arrow-step": 0.01,
+      "slider": true,
+      "slider-step": 0.01,
+      "input": false
+    }
+  },
+  "Min microclicks_time": {
+    "type": "float",
+    "name": "Min Microclicks Time",
+    "description": "Minimum delay between micro clicks in seconds.",
+    "default": 0.05,
+    "min": 0.0,
+    "max": 999,
+    "controls": {
+      "arrows": true,
+      "arrow-step": 0.01,
+      "slider": true,
+      "slider-step": 0.01,
+      "input": false
+    }
+  },
+  "Max microclicks_time": {
+    "type": "float",
+    "name": "Max Microclicks Time",
+    "description": "Maximum delay between micro clicks in seconds.",
+    "default": 0.05,
     "min": 0.0,
     "max": 999,
     "controls": {

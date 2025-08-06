@@ -8,26 +8,38 @@ namespace CBot
 		float CurrentTime = 0.0f;
 		
 		bool hasClickpacks = !gui::m_Player1ClickAudios.empty() || !gui::m_Player2ClickAudios.empty();
+		
+		// Get the current time
+		DWORD timelocal = timeGetTime();
+		float timeDiff = (timelocal - PreviousTime);
+		PreviousTime = timelocal;
+		
 		if (gui::m_gameSync && hasClickpacks)
 		{
 			auto* director = cocos2d::CCDirector::sharedDirector();
 			if (director)
 			{
-				float deltaTime = director->getDeltaTime();
-				CurrentTime = deltaTime;
+				// Use the game's actual delta time instead of the fixed animation interval
+				// This ensures clicks are properly synchronized with the actual game speed
+				CurrentTime = director->getDeltaTime();
+				
+				// If delta time is zero or very small, use a reasonable default
+				// This prevents issues when the game is paused or running very slowly
+				if (CurrentTime < 0.0001f)
+				{
+					CurrentTime = 0.016f; // Default to ~60fps timing
+				}
 			}
 			else
 			{
-				DWORD timelocal = timeGetTime();
-				CurrentTime = (timelocal - PreviousTime) / 1000.0f;
-				PreviousTime = timelocal;
+				// Fallback to system time if director is not available
+				CurrentTime = timeDiff;
 			}
 		}
 		else
 		{
-			DWORD timelocal = timeGetTime();
-			CurrentTime = (timelocal - PreviousTime) / 1000.0f;
-			PreviousTime = timelocal;
+			// When game sync is disabled, use system time
+			CurrentTime = timeDiff;
 		}
 
 		if (CurrentTime < random::floatRandom(gui::m_minsoftClickstime, gui::m_maxsoftClickstime) && SoftClick)
@@ -54,9 +66,16 @@ namespace CBot
 				return ClickType::MicroRelease;
 		}
 
-		if (IsHolding)
-			return ClickType::NormalClick;
-		else
-			return ClickType::NormalRelease;
+		// Only return NormalClick/NormalRelease if at least one click type is enabled
+		if (SoftClick || HardClick || MicroClick)
+		{
+			if (IsHolding)
+				return ClickType::NormalClick;
+			else
+				return ClickType::NormalRelease;
+		}
+
+		// Return a special type that indicates no click should be played
+		return ClickType::None;
 	}
 }

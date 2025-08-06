@@ -2,7 +2,7 @@
 
 enum class ClickType
 {
-	NormalClick, SoftClick, HardClick, MicroClick,
+	None, NormalClick, SoftClick, HardClick, MicroClick,
 	NormalRelease, SoftRelease, HardRelease, MicroRelease
 };
 
